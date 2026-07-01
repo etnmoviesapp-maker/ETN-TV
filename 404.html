@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>ETN TV ULTRA X — Loading...</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { background: #04040e; color: #fff; font-family: sans-serif;
+           display: flex; align-items: center; justify-content: center;
+           min-height: 100vh; margin: 0; flex-direction: column; text-align: center; }
+    h2 { color: #ff2244; font-size: 32px; margin-bottom: 8px; }
+    p  { color: rgba(255,255,255,.6); font-size: 14px; }
+    .spin { font-size: 40px; animation: sp 1s linear infinite; display: inline-block; }
+    @keyframes sp { to { transform: rotate(360deg); } }
+  </style>
+  <script>
+    // GitHub Pages 404 SPA Trick — ETN TV ke liye
+    // Agar koi direct URL visit kare ya PWA khulay to 404.html milti hai
+    // Yeh script index.html par redirect karta hai session storage use kar ke
+    var path = window.location.pathname;
+    var repo = path.split('/')[1]; // e.g. 'my-repo'
+    var isRepoRoot = path.split('/').length <= 2;
+    sessionStorage.setItem('etntv_redirect', window.location.href);
+    // Redirect to index.html at repo root
+    window.location.replace(
+      window.location.origin + (isRepoRoot ? '' : '/' + repo) + '/'
+    );
+  </script>
+</head>
+<body>
+  <div class="spin">📺</div>
+  <h2>ETN TV ULTRA X</h2>
+  <p>Loading app...</p>
+</body>
+</html>
